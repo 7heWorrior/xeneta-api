@@ -13,34 +13,35 @@ def get_rates():
     origin = request.args.get('origin')
     destination = request.args.get('destination')
 
-    # Validate required parameters
     if not all([date_from, date_to, origin, destination]):
         return jsonify({"error": "Missing required parameters"}), 400
 
     try:
-        # Convert dates to datetime objects
         date_from = datetime.strptime(date_from, '%Y-%m-%d')
         date_to = datetime.strptime(date_to, '%Y-%m-%d')
     except ValueError:
         return jsonify({"error": "Invalid date format"}), 400
 
-    # Execute the query
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute(GET_FILTERED_PRICES, (date_from, date_to, origin, origin, destination, destination))
+    params = {
+    "date_from": date_from,
+    "date_to": date_to,
+    "origin": origin,
+    "destination": destination
+}
+    cur.execute(GET_FILTERED_PRICES, params)
     result = cur.fetchall()
     cur.close()
     conn.close()
-
-    # Prepare the response
     rates = []
+    # print(result)
     for row in result:
         day_data = {
             "day": row[0].strftime('%Y-%m-%d'),
-            "average_price": row[1] if row[2] >= 3 else None
+            "average_price": round(row[1]) if row[2] >= 3 else None
         }
         rates.append(day_data)
-
     return jsonify(rates)
 
 if __name__ == '__main__':
