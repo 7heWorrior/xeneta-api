@@ -66,30 +66,6 @@ With the virtual environment activated, install the required dependencies:
 pip install -r requirements.txt
 ```
 
-### 5. Set Up the Database
-
-Ensure you have PostgreSQL installed and running. Create the necessary database and tables:
-
-1. Access PostgreSQL:
-
-   ```bash
-   psql -U postgres
-   ```
-
-2. Create the database:
-
-   ```sql
-   CREATE DATABASE rates_db;
-   ```
-
-3. Exit `psql` and load the provided schema:
-
-   ```bash
-   psql -U postgres -d rates_db -f path/to/rates.sql
-   ```
-
-Replace `path/to/rates.sql` with the actual path to your `rates.sql` file.
-
 ## Running the Application
 
 To start the Flask application, run:
@@ -110,42 +86,3 @@ pytest
 
 This will run all the unit tests to ensure your application is working as expected.
 
-## Logging
-
-Logging is configured to output to the console by default. You can modify the logging configuration in `app.py` to log to a file if needed.
-
-## Performance Optimization
-
-For performance optimization, consider:
-
-- Using indexing on frequently queried columns.
-- Partitioning large tables by date.
-- Implementing caching for frequently accessed data.
-- Archiving old data to keep tables smaller.
-
-These strategies are discussed in detail in the project documentation.
-
-## API Endpoints
-
-- **GET /rates**: Retrieve average shipping rates between ports over a specified date range.
-
-  Example request:
-
-  ```bash
-  curl "http://127.0.0.1:5000/rates?date_from=2016-01-01&date_to=2016-01-10&origin=CNSGH&destination=north_europe_main"
-  ```
-
-  Example response:
-
-  ```json
-  [
-      {
-          "day": "2016-01-01",
-          "average_price": 1150
-      },
-      {
-          "day": "2016-01-02",
-          "average_price": null
-      }
-  ]
-  ```
