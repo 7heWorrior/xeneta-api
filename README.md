@@ -65,6 +65,12 @@ With the virtual environment activated, install the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+## Creating .env file 
+Create .env file for your DATABASE URI 
+
+```bash
+DATABASE=postgresql://user:password@localhost/your_database
+```
 
 ## Running the Application
 
