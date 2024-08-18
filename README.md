@@ -1,4 +1,3 @@
-```markdown
 # Rates API
 
 This project is a Flask-based API for querying shipping rates between ports. It uses PostgreSQL as the database and follows best practices for performance and scalability.
