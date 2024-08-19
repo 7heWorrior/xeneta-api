@@ -92,3 +92,26 @@ pytest
 
 This will run all the unit tests to ensure your application is working as expected.
 
+## API Endpoints
+
+GET /rates: Retrieve average shipping rates between ports over a specified date range.
+
+Example request:
+
+```bash
+curl "http://127.0.0.1:5000/rates?date_from=2016-01-01&date_to=2016-01-10&origin=CNSGH&destination=north_europe_main"
+```
+Example response:
+```json
+Copy code
+[
+    {
+        "day": "2016-01-01",
+        "average_price": 1150
+    },
+    {
+        "day": "2016-01-02",
+        "average_price": null
+    }
+]
+```
