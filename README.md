@@ -10,12 +10,8 @@ This project is a Flask-based API for querying shipping rates between ports. It 
   - [2. Create a Virtual Environment](#2-create-a-virtual-environment)
   - [3. Activate the Virtual Environment](#3-activate-the-virtual-environment)
   - [4. Install Dependencies](#4-install-dependencies)
-  - [5. Set Up the Database](#5-set-up-the-database)
 - [Running the Application](#running-the-application)
 - [Running Tests](#running-tests)
-- [Logging](#logging)
-- [Performance Optimization](#performance-optimization)
-- [API Endpoints](#api-endpoints)
 
 ## Requirements
 
