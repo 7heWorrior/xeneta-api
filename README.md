@@ -99,7 +99,6 @@ curl "http://127.0.0.1:5000/rates?date_from=2016-01-01&date_to=2016-01-10&origin
 ```
 Example response:
 ```json
-Copy code
 [
     {
         "day": "2016-01-01",
