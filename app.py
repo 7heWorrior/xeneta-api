@@ -49,4 +49,4 @@ def get_rates():
 
 if __name__ == '__main__':
     init_connection_pool()
-    app.run(debug=True)
+    app.run()
